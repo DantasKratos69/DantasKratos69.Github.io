@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedal Livre - Contato</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #00FF87;
+      --secondary: #00D1FF;
+      --dark: #121212;
+      --card: #1E1E1E;
+      --light: #FFF;
+      --border: #333;
+      --bg-dark: #121212;
+      --text-light: #fff;
+      --primary-color: #00FF87;
+      --secondary-color: #00D1FF;
+      --border-color: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      padding-top: 80px; /* Espaço para navbar fixa */
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--dark);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: var(--dark);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 50px;
+      margin-right: 12px;
+    }
+
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-shadow: 0 0 8px var(--primary);
+    }
+
+    .logo-text span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      color: var(--light);
+      font-size: 1.2rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .contact-section {
+      max-width: 800px;
+      margin: 2rem auto 4rem auto; /* margem superior ajustada */
+      padding: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+    }
+
+    .contact-section h1 {
+      text-align: center;
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-section p {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    input, textarea {
+      padding: 1rem;
+      border-radius: 5px;
+      border: 1px solid var(--border-color);
+      background: #2a2a2a;
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    button {
+      background: var(--primary-color);
+      color: var(--bg-dark);
+      padding: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--secondary-color);
+      color: var(--text-light);
+    }
+
+    .footer {
+      background: var(--card);
+      color: var(--text-light);
+      padding: 3rem 5%;
+      font-size: 0.95rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col ul li {
+      margin: 0.5rem 0;
+    }
+
+    .footer-col ul a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--primary-color);
+    }
+
+    .footer-newsletter {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .footer-newsletter input {
+      flex: 1;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background: #222;
+      color: var(--text-light);
+    }
+
+    .footer-newsletter button {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      background: var(--primary-color);
+      color: var(--bg-dark);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .footer-newsletter button:hover {
+      background: var(--secondary-color);
+    }
+
+    .footer-social {
+      margin-top: 1rem;
+    }
+
+    .footer-social a {
+      color: var(--text-light);
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .footer-social a:hover {
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1rem;
+    }
+
+    /* Botão HOME */
+    .home-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: var(--dark);
+      padding: 0.8rem;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      box-shadow: 0 0 10px var(--primary);
+      z-index: 999;
+      transition: transform 0.3s ease, background 0.3s ease;
+      display: none; /* escondido inicialmente */
+    }
+
+    .home-icon:hover {
+      transform: translateY(-2px);
+      background: var(--secondary);
+      color: var(--light);
+    }
+
+    .home-icon.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo Pedal Livre" class="logo-img"/>
+      <div class="logo-text">PEDAL<span>LIVRE</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="sobre 1.html">Sobre</a>
+      <a href="produtos 1.html">Produtos</a>
+      <a href="planos 1.html">Planos</a>
+      <a href="contatos 1.html">Contato</a>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/pedallivre" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/pedallivre" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://wa.me/5599999999999" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </nav>
+
+  <!-- CONTATO -->
+  <section class="contact-section" id="contato">
+    <h1>Fale Conosco</h1>
+    <p>Tem dúvidas, sugestões ou precisa de ajuda? Preencha o formulário abaixo e entraremos em contato.</p>
+    <form>
+      <input type="text" name="nome" placeholder="Seu Nome" required>
+      <input type="email" name="email" placeholder="Seu Email" required>
+      <textarea name="mensagem" rows="5" placeholder="Sua Mensagem" required></textarea>
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Pedal Livre</h3>
+        <p>Mobilidade urbana e sustentabilidade unidas em cada pedalada. Seu jeito mais verde de explorar a cidade.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Links Rápidos</h3>
+        <ul>
+           <a href="sobre 1.html">Sobre</a>
+      <a href="produtos 1.html">Produtos</a>
+      <a href="planos 1.html">Planos</a>
+      <a href="contatos 1.html">Contato</a>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Newsletter</h3>
+        <p>Receba dicas, novidades e promoções exclusivas no seu e-mail:</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Seu e-mail" />
+          <button>Inscrever</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pedal Livre. Todos os direitos reservados.</p>
+      <div>
+        <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ÍCONE DE HOME -->
+  <a href="index.html" class="home-icon" id="homeIcon" title="Voltar ao topo">
+    <i class="fas fa-home"></i>
+  </a>
+
+  <!-- SCRIPT: mostra o botão ao rolar -->
+  <script>
+    const homeIcon = document.getElementById('homeIcon');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        homeIcon.classList.add('show');
+      } else {
+        homeIcon.classList.remove('show');
+      }
+    });
+  </script>
+
+</body>
+</html>
